@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import util.NewHibernateUtil;
+import util.HibernateUtil;
 
 /**
  *
@@ -41,7 +41,7 @@ private static final long serialVersionUID = 1L;
                response.setContentType("text/html;charset=UTF-8");
         String email=request.getParameter("email");
         String password=request.getParameter("password");
-       SessionFactory s =NewHibernateUtil.getSessionFactory();
+        Session s =HibernateUtil.getSession();
         Query q =s.createQuery("Select u from User where u.User.email=:email and u.User.password=:password");
         q.setString(email, email);
        q.setString(password, password);

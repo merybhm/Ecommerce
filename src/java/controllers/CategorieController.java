@@ -15,10 +15,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import service.CategorieService;
 import service.MarqueService;
-import util.NewHibernateUtil;
+import util.HibernateUtil;
 
 /**
  *
@@ -41,7 +40,8 @@ private static final long serialVersionUID = 1L;
         response.setContentType("text/html;charset=UTF-8");
        CategorieService ms = new CategorieService ();
      
-         SessionFactory s =NewHibernateUtil.getSessionFactory();
+         Session s =HibernateUtil.getSession();
+      
               String nom = request.getParameter("nom");
         
           Categorie cat=new Categorie(nom);

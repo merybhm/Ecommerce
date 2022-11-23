@@ -14,7 +14,7 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import util.NewHibernateUtil;
+import util.HibernateUtil;
 
 /**
  *
@@ -26,7 +26,7 @@ public class ClientService implements IDao<Client> {
         Session session = null;
         Transaction tx = null;
         try {
-            session = NewHibernateUtil.getSessionFactory().openSession();
+            session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
             session.save(o);
             tx.commit();
@@ -45,7 +45,7 @@ public class ClientService implements IDao<Client> {
                Session session = null;
         Transaction tx = null;
         try {
-            session = NewHibernateUtil.getSessionFactory().openSession();
+            session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
             session.delete(o);
             tx.commit();
@@ -64,7 +64,7 @@ public class ClientService implements IDao<Client> {
                 Session session = null;
         Transaction tx = null;
         try {
-            session = NewHibernateUtil.getSessionFactory().openSession();
+            session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
             session.update(o);
             tx.commit();
@@ -90,7 +90,7 @@ public class ClientService implements IDao<Client> {
         Session session = null;
         Transaction tx = null;
         try {
-            session = NewHibernateUtil.getSessionFactory().openSession();
+            session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
             client  = (Client) session.get(Client.class, id);
             tx.commit();
@@ -110,7 +110,7 @@ public class ClientService implements IDao<Client> {
         Session session = null;
         Transaction tx = null;
         try {
-            session = NewHibernateUtil.getSessionFactory().openSession();
+            session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
             clients  =  session.createQuery("from Client").list();
             tx.commit();

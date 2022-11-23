@@ -14,7 +14,7 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import util.NewHibernateUtil;
+import util.HibernateUtil;
 
 /**
  *
@@ -26,7 +26,7 @@ public class CommandeService implements IDao<Commande> {
         Session session = null;
         Transaction tx = null;
         try {
-            session = NewHibernateUtil.getSessionFactory().openSession();
+            session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
             session.save(o);
             tx.commit();
@@ -45,7 +45,7 @@ public class CommandeService implements IDao<Commande> {
                Session session = null;
         Transaction tx = null;
         try {
-            session = NewHibernateUtil.getSessionFactory().openSession();
+            session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
             session.delete(o);
             tx.commit();
@@ -64,7 +64,7 @@ public class CommandeService implements IDao<Commande> {
                 Session session = null;
         Transaction tx = null;
         try {
-            session = NewHibernateUtil.getSessionFactory().openSession();
+            session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
             session.update(o);
             tx.commit();
@@ -90,7 +90,7 @@ public class CommandeService implements IDao<Commande> {
         Session session = null;
         Transaction tx = null;
         try {
-            session = NewHibernateUtil.getSessionFactory().openSession();
+            session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
             commande  = (Commande) session.get(Commande.class, id);
             tx.commit();
@@ -107,7 +107,7 @@ public class CommandeService implements IDao<Commande> {
         Session session = null;
         Transaction tx = null;
         try {
-            session = NewHibernateUtil.getSessionFactory().openSession();
+            session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
             commandes  =  session.getNamedQuery("findBetweenDates").setParameter("d1", d1).setParameter("d2", d2).list();
             tx.commit();
@@ -126,7 +126,7 @@ public class CommandeService implements IDao<Commande> {
         Session session = null;
         Transaction tx = null;
         try {
-            session = NewHibernateUtil.getSessionFactory().openSession();
+            session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
             commandes  =  session.createQuery("from Commande").list();
             tx.commit();

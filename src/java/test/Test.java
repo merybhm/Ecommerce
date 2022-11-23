@@ -6,8 +6,7 @@
 package test;
 
 import org.hibernate.Hibernate;
-
-import util.NewHibernateUtil;
+import util.HibernateUtil;
 
 /**
  *
@@ -15,6 +14,6 @@ import util.NewHibernateUtil;
  */
 public class Test {
     public static void main(String[] args) {
-             NewHibernateUtil.getSessionFactory().openSession();
+             HibernateUtil.getSessionFactory().openSession();
     }
 }

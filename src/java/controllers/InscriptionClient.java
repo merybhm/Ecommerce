@@ -16,10 +16,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import service.AdminService;
 import service.ClientService;
-import util.NewHibernateUtil;
+import util.HibernateUtil;
 
 /**
  *
@@ -45,7 +44,8 @@ private static final long serialVersionUID = 1L;
         
    
       
-         SessionFactory s =NewHibernateUtil.getSessionFactory();
+         Session s =HibernateUtil.getSession();
+      
             String email = request.getParameter("email");
             String password = request.getParameter("password");
               String nom = request.getParameter("nom");

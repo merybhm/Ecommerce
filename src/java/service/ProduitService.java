@@ -15,7 +15,7 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import util.NewHibernateUtil;
+import util.HibernateUtil;
 
 /**
  *
@@ -27,7 +27,7 @@ public class ProduitService  implements IDao <Produit> {
         Session session = null;
         Transaction tx = null;
         try {
-            session = NewHibernateUtil.getSessionFactory().openSession();
+            session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
             session.save(o);
             tx.commit();
@@ -46,7 +46,7 @@ public class ProduitService  implements IDao <Produit> {
                Session session = null;
         Transaction tx = null;
         try {
-            session = NewHibernateUtil.getSessionFactory().openSession();
+            session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
             session.delete(o);
             tx.commit();
@@ -65,7 +65,7 @@ public class ProduitService  implements IDao <Produit> {
                 Session session = null;
         Transaction tx = null;
         try {
-            session = NewHibernateUtil.getSessionFactory().openSession();
+            session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
             session.update(o);
             tx.commit();
@@ -91,7 +91,7 @@ public class ProduitService  implements IDao <Produit> {
         Session session = null;
         Transaction tx = null;
         try {
-            session = NewHibernateUtil.getSessionFactory().openSession();
+            session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
             produit  = (Produit) session.get(Produit.class, id);
             tx.commit();
@@ -112,7 +112,7 @@ public class ProduitService  implements IDao <Produit> {
         Session session = null;
         Transaction tx = null;
         try {
-            session = NewHibernateUtil.getSessionFactory().openSession();
+            session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
             produits  =  session.createQuery("from Produit").list();
             tx.commit();
@@ -130,7 +130,7 @@ public class ProduitService  implements IDao <Produit> {
         Session session = null;
         Transaction tx = null;
         try {
-            session = NewHibernateUtil.getSessionFactory().openSession();
+            session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
             produits  =  session.createQuery("from Produit p where p.categorie = "+ct.getId()).list();
             tx.commit();
@@ -148,7 +148,7 @@ public class ProduitService  implements IDao <Produit> {
         Session session = null;
         Transaction tx = null;
         try {
-            session = NewHibernateUtil.getSessionFactory().openSession();
+            session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
            produits  =  session.createQuery("from Produit p where p.marque = "+mar.getId()).list();
             tx.commit();

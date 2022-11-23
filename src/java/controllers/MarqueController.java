@@ -14,9 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import service.MarqueService;
-import util.NewHibernateUtil;
+import util.HibernateUtil;
 
 /**
  *
@@ -38,7 +37,7 @@ private static final long serialVersionUID = 1L;
             throws ServletException, IOException {
           MarqueService ms = new MarqueService();
      
-         SessionFactory s =NewHibernateUtil.getSessionFactory();
+         Session s =HibernateUtil.getSession();
       
               String nom = request.getParameter("nom");
         
